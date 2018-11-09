@@ -5,4 +5,8 @@ steps:
 # build
 - name: 'node:alpine'
   args: ['yarn',  'build']
-# deploy
+# dockerize
+- name: 'docker'
+  args: ['build', '-t', 'ui', '.']
+# store docker image
+images: ['ui']
