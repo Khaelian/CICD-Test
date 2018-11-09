@@ -9,4 +9,5 @@ steps:
 - name: 'docker'
   args: ['build', '-t', 'grc.io/$PROJECT_ID/ui', '.']
 # store docker image
-images: ['grc.io/$PROJECT_ID/ui']
+- name: 'docker'
+  args: ['push', 'grc.io/$PROJECT_ID/ui']
