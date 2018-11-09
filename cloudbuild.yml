@@ -7,6 +7,6 @@ steps:
   args: ['yarn',  'build']
 # dockerize
 - name: 'docker'
-  args: ['build', '-t', 'ui', '.']
+  args: ['build', '-t', 'grc.io/$PROJECT_ID/ui', '.']
 # store docker image
-images: ['ui']
+images: ['grc.io/$PROJECT_ID/ui']
