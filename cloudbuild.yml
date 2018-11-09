@@ -4,5 +4,5 @@ steps:
   args: ['yarn']
 # build
 - name: 'node:alpine'
-  args: ['yarn build']
+  args: ['yarn',  'build']
 # deploy
