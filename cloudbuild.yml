@@ -1,0 +1,8 @@
+steps:
+# get dependencies
+- name: 'node:alpine'
+  args: ['yarn']
+# build
+- name: 'node:alpine'
+  args: ['yarn build']
+# deploy?
