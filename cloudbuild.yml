@@ -19,6 +19,6 @@ steps:
   args: ['mv', 'Dockerfile.deploy', 'Dockerfile']
 # rename deploy Dockerfile source
 - name: 'alpine'
-  args: ['sed', '-i', "s/%IMAGE%/gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA/g", 'Dockerfile']
+  args: ['sed', '-i', 's~%IMAGE%~gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA~g', 'Dockerfile']
 # store docker image
 # images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA']
