@@ -7,6 +7,6 @@ steps:
   args: ['yarn',  'build']
 # dockerize
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID-$SHORT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA', '.']
 # store docker image
-images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID-$SHORT_SHA']
+images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA']
