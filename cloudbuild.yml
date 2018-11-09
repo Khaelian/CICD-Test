@@ -1,12 +1,12 @@
 steps:
 # get dependencies
 # - name: 'gcr.io/cloud-builders/npm'
-- name: 'npm'
-  args: ['install']
+- name: 'node'
+  args: ['yarn', 'install']
 # build
 # - name: 'gcr.io/cloud-builders/npm'
-- name: 'npm'
-  args: ['run',  'build']
+- name: 'node'
+  args: ['yarn',  'build']
 # dockerize
 # - name: 'gcr.io/cloud-builders/docker'
 - name: 'docker'
