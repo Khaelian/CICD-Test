@@ -1,12 +1,15 @@
 steps:
 # get dependencies
-- name: 'grc.io/cloud-builders/npm'
-  args: ['yarn']
+# - name: 'gcr.io/cloud-builders/npm'
+- name: 'npm'
+  args: ['install']
 # build
-- name: 'grc.io/cloud-builders/npm'
-  args: ['yarn',  'build']
+# - name: 'gcr.io/cloud-builders/npm'
+- name: 'npm'
+  args: ['run',  'build']
 # dockerize
-- name: 'grc.io/cloud-builders/docker'
-  args: ['build', '-t', 'grc.io/$PROJECT_ID/cicd-ui', '.']
+# - name: 'gcr.io/cloud-builders/docker'
+- name: 'docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/cicd-ui', '.']
 # store docker image
-images: ['grc.io/$PROJECT_ID/cicd-ui']
+images: ['gcr.io/$PROJECT_ID/cicd-ui']
