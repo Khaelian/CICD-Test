@@ -1,15 +1,12 @@
 steps:
 # get dependencies
-- name: 'gcr.io/cloud-builders/npm'
-# - name: 'node'
-  args: ['install']
+- name: 'node:alpine'
+  args: ['yarn']
 # build
-- name: 'gcr.io/cloud-builders/npm'
-# - name: 'node'
-  args: ['run',  'build']
+- name: 'node:alpine'
+  args: ['yarn',  'build']
 # dockerize
 - name: 'gcr.io/cloud-builders/docker'
-# - name: 'docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/cicd-ui', '.']
 # store docker image
 images: ['gcr.io/$PROJECT_ID/cicd-ui']
