@@ -5,22 +5,7 @@ steps:
 # build
 - name: 'node:alpine'
   args: ['yarn', 'build']
-# dockerize
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA', '.']
-# store docker image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA']
-# remove old Dockerfile
-- name: 'alpine'
-  args: ['rm', 'Dockerfile']
-# move deploy Dockerfile
-- name: 'alpine'
-  args: ['mv', 'Dockerfile.deploy', 'Dockerfile']
-# rename deploy Dockerfile source
-- name: 'alpine'
-  args: ['sed', '-i', 's~%IMAGE%~gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA~g', 'Dockerfile']
 # deploy to google app engine
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy']
-timeout: '1600s'
+# timeout: '1600s'
